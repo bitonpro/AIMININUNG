@@ -1,0 +1,64 @@
+{
+  "project_name": "Abraham-AI",
+  "version": "1.0.0",
+  "description": "מנוע AI המשלב חוכמה יהודית וסינית עתיקה",
+  "authors": ["חברותא 1000 - ילדי אברהם"],
+  
+  "jewish_wisdom_modules": {
+    "talmudic_logic": {
+      "rules": ["kal_vachomer", "gezerah_shavah", "binyan_av"],
+      "description": "לוגיקה דיאלקטית תלמודית"
+    },
+    "kabbalah_structure": {
+      "sephirot": ["keter", "chochma", "bina", "chesed", "gevurah", "tiferet", "netzach", "hod", "yesod", "malchut"],
+      "description": "ארכיטקטורת 10 הספירות"
+    },
+    "pardes_interpretation": {
+      "levels": ["pshat", "remez", "drash", "sod"],
+      "description": "4 רמות פרשנות"
+    }
+  },
+  
+  "chinese_wisdom_modules": {
+    "tao_principle": {
+      "concepts": ["wu_wei", "yin_yang", "natural_flow"],
+      "description": "עקרונות הדאו והזרימה הטבעית"
+    },
+    "five_elements": {
+      "elements": ["wood", "fire", "earth", "metal", "water"],
+      "cycles": ["generation", "restriction"],
+      "description": "חמשת היסודות ומחזוריהם"
+    },
+    "i_ching": {
+      "hexagrams": 64,
+      "description": "ספר התמורות - 64 המצבים הקוסמיים"
+    }
+  },
+  
+  "integration_engine": {
+    "name": "Digital Silk Road Bridge",
+    "algorithms": ["dialogue_based_reasoning", "balance_optimization", "holistic_analysis"],
+    "output_layers": ["technical", "ethical", "harmonious", "mystical"]
+  },
+  
+  "deployment": {
+    "recommended_platform": "Alibaba Cloud",
+    "reasons": [
+      "שורשים סיניים - מקור החוכמה",
+      "מבצעי AI נדיבים",
+      "תמיכה בטכנולוגיות מתקדמות",
+      "גשר טבעי בין מזרח למערב"
+    ],
+    "infrastructure": {
+      "compute": "ECS instances with GPU",
+      "storage": "OSS for wisdom databases",
+      "ai_services": "PAI platform and Model Studio"
+    }
+  },
+  
+  "collaboration": {
+    "room_name": "חדר חברותא 1000 - ילדי אברהם",
+    "mission": "יצירת AI המשלבת חוכמה יהודית וסינית",
+    "invitation": "מוזמנים להוסיף, לשפר, ולהחזיר גרסה משלכם!"
+  }
+}

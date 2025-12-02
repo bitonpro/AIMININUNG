@@ -1,0 +1,84 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Data files
+*.csv
+*.json
+*.pkl
+*.h5
+*.model
+*.data
+*.index
+*.meta
+data/
+datasets/
+
+# Alibaba Cloud credentials
+aliyun/
+*.key
+*.pem
+*credentials*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Docker
+*.dockerignore
+!Dockerfile
+
+# Temporary
+temp/
+tmp/
+
+# Virtual environments
+venv*/
+ENV*/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Test
+.coverage
+htmlcov/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Models and weights
+*.weights
+*.onnx
+*.torch
+
+# Environment variables
+.env
+.env.local
+.env.*.local

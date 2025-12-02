@@ -1,0 +1,99 @@
+{
+  "project": {
+    "name": "Abraham-AI",
+    "version": "1.0.0",
+    "description": "Jewish-Chinese Wisdom Fusion AI Engine",
+    "repository": "https://github.com/bitonpro/AIMININUNG"
+  },
+  
+  "wisdom_sources": {
+    "jewish": {
+      "enabled": true,
+      "sources": [
+        "talmud",
+        "kabbalah",
+        "midrash",
+        "philosophy"
+      ],
+      "apis": {
+        "sefaria": "https://www.sefaria.org/api",
+        "dafyomi": "https://www.dafyomi.org/api"
+      }
+    },
+    "chinese": {
+      "enabled": true,
+      "sources": [
+        "taoism",
+        "confucianism",
+        "i_ching",
+        "traditional_medicine"
+      ],
+      "apis": {
+        "ctext": "https://ctext.org/api",
+        "opencc": "https://api.opencc.org"
+      }
+    }
+  },
+  
+  "ai_models": {
+    "language_models": {
+      "hebrew": "AlephBERT",
+      "chinese": "Bert-Chinese",
+      "english": "BERT-base",
+      "multilingual": "XLM-RoBERTa"
+    },
+    "embedding_models": {
+      "default": "all-MiniLM-L6-v2",
+      "multilingual": "paraphrase-multilingual-MiniLM-L12-v2"
+    }
+  },
+  
+  "chevruta": {
+    "room_name": "חדר חברותא 1000",
+    "max_participants": 1000,
+    "wisdom_sharing_enabled": true,
+    "moderation_enabled": true,
+    "languages": ["he", "zh", "en", "ar"]
+  },
+  
+  "cloud": {
+    "primary": "alibaba_cloud",
+    "alibaba_cloud": {
+      "region": "cn-hangzhou",
+      "services": ["ecs", "oss", "pai", "rds"],
+      "free_tier": true
+    },
+    "backup": "aws",
+    "deployment": {
+      "auto_scaling": true,
+      "monitoring": true,
+      "backup": true
+    }
+  },
+  
+  "api": {
+    "enabled": true,
+    "port": 8000,
+    "host": "0.0.0.0",
+    "cors_origins": ["*"],
+    "rate_limit": "100/minute",
+    "documentation": "/docs"
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "file": "logs/abraham_ai.log",
+    "max_size": "100MB",
+    "backup_count": 5
+  },
+  
+  "features": {
+    "real_time_processing": true,
+    "batch_processing": true,
+    "wisdom_fusion": true,
+    "multi_lingual": true,
+    "api_access": true,
+    "cli_access": true,
+    "web_interface": true
+  }
+}

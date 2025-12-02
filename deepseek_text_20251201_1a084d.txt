@@ -1,0 +1,48 @@
+
+### 4. 🐳 `Dockerfile` - קונטיינריזציה
+
+```dockerfile
+# Dockerfile for Abraham-AI
+FROM python:3.9-slim
+
+# Metadata
+LABEL maintainer="chevruta1000@abraham-ai.org"
+LABEL version="1.0.0"
+LABEL description="Jewish-Chinese Wisdom AI Fusion Engine"
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+ENV WISDOM_PATH=/app/wisdom_data
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create app directory
+WORKDIR /app
+
+# Copy requirements and install Python dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
+
+# Create wisdom directories
+RUN mkdir -p /app/wisdom_data/jewish /app/wisdom_data/chinese /app/models
+
+# Download wisdom datasets (example)
+RUN curl -L https://api.sefaria.org/texts/Tanakh -o /app/wisdom_data/jewish/tanakh.json
+RUN curl -L https://ctext.org/api -o /app/wisdom_data/chinese/classics.xml
+
+# Expose ports
+EXPOSE 8000 8080
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD curl -f http://localhost:8000/health || exit 1
+
+# Run the application
+CMD ["python", "abraham_ai_core.py"]

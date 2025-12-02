@@ -1,0 +1,57 @@
+# Core dependencies
+numpy>=1.21.0
+pandas>=1.5.0
+scikit-learn>=1.0.0
+scipy>=1.7.0
+
+# Machine Learning
+torch>=1.12.0
+transformers>=4.25.0
+sentence-transformers>=2.2.0
+
+# Web & API
+flask>=2.0.0
+fastapi>=0.85.0
+uvicorn>=0.18.0
+requests>=2.28.0
+aiohttp>=3.8.0
+
+# Data processing
+beautifulsoup4>=4.11.0
+lxml>=4.9.0
+jieba>=0.42.0  # Chinese text processing
+hebrew-nlp>=0.1.0  # Hebrew text processing
+
+# Database
+sqlalchemy>=1.4.0
+redis>=4.3.0
+pymongo>=4.0.0
+
+# Cloud
+alibabacloud-core>=2.0.0
+alibabacloud-ecs>=3.0.0
+alibabacloud-oss>=2.0.0
+boto3>=1.24.0
+
+# Utilities
+python-dotenv>=0.20.0
+pydantic>=1.10.0
+loguru>=0.6.0
+colorama>=0.4.0
+tqdm>=4.64.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-asyncio>=0.20.0
+
+# Documentation
+mkdocs>=1.4.0
+mkdocs-material>=9.0.0
+pdoc3>=0.10.0
+
+# Development
+black>=22.0.0
+flake8>=5.0.0
+mypy>=0.990.0
+pre-commit>=2.20.0

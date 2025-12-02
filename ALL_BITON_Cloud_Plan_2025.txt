@@ -1,0 +1,167 @@
+תוכנית מערך ענן - ALL BITON
+Cloud Infrastructure Plan - ALL BITON
+📋 תקציר / Executive Summary
+עברית: מסמך זה מתעד תכנון מלא למערך ענן היברידי המשלב AI, כרייה, שירותי אינטרנט ותקשורת. תקציב: 1,800 ₪ לחודש (~552$). ניצול קרדיטים ב-Vast.ai (382$) ו-Google Drive (30TB).
+
+English: This document outlines a comprehensive hybrid cloud infrastructure plan combining AI, mining, web services, and communication. Budget: 1,800 ILS/month (~552$). Utilizing existing Vast.ai credits (382$) and Google Drive (30TB).
+
+⚖️ חוקיות / Legality
+🔵 Alibaba Cloud
+אסור: כריית קריפטו, שימוש אינטנסיבי במשאבים
+
+מותר: שרתי אינטרנט, AI (Model Studio), APIs, ניהול
+
+סיכון: סגירת חשבון בהפרת תנאים
+
+🟢 Vast.ai
+מותר: כריית קריפטו עם GPU
+
+דרוש: מימון במטבע קריפטו (לא קרדיטי אשראי)
+
+חוקי: בהתאם לחוקי המדינה ומדיניות המארח
+
+🇮🇱 רגולציה בישראל
+מעמד: כרייה חוקית
+
+מס: 25% רווח הון (פרטי) / עד 50% + 17% מע"מ (עסק)
+
+דיווח: מעקב רווחים, ייעוץ מס מומלץ
+
+🏗️ ארכיטקטורה / Architecture
+🧠 שכבת ניהול (Management Layer) - Alibaba Cloud
+text
+שרת A1: Web/API - 4 vCPU, 8GB RAM, 100GB SSD
+שרת A2: ניטור (Grafana) - 4 vCPU, 8GB RAM, 60GB SSD
+שרת A3: Database - 2 vCPU, 4GB RAM, 60GB
+שרת A4: פיתוח/בדיקות - 4 vCPU, 8GB RAM
+💪 שכבת מחשוב (Compute Layer) - Vast.ai
+text
+V1: כרייה ראשית - RTX 5090, 16 vCPU, 64GB RAM (0.36$/שעה)
+V2: משחקים/AI - RTX 5090, 16 vCPU, 64GB RAM (0.36$/שעה)
+V3: כרייה נוספת - RTX 5090, 8 vCPU, 32GB RAM (0.36$/שעה)
+💾 שכבת אחסון (Storage Layer)
+Google Drive: 30TB (אחסון נתונים, גיבויים)
+
+Alibaba OSS: לפי צורך (תוספת)
+
+💰 תקציב חודשי / Monthly Budget
+קטגוריה / Category	עלות ($) / Cost ($)	פרטים / Details
+ניהול Alibaba	150-200	שרתים משודרגים + DB
+מחשוב Vast.ai	300-350	שעות GPU לכרייה/משחקים
+נוספים	50-100	CDN, API, טוקנים
+מאגר	52	תנודות שוק, מס, שדרוגים
+סה"כ	~552	תקציב מלא
+*המרה: 1,800 ₪ = ~552$ (שער 3.26 ₪/$)*
+
+🎯 רווחיות כרייה / Mining Profitability
+מטבע / Coin	ברוטו יומי / Daily Gross	נטו יומי / Daily Net	חודשי / Monthly
+Flux	5.15$	1.55$	~46.5$
+Qubitcoin	0.57$	0.21$	~6.3$
+Abelian	4.00$	0.40$	~12.0$
+הערה: רווחיות משתנה לפי מחירי מטבע, קושי רשת, ועלויות חשמל.
+
+🚀 שלבי יישום / Implementation Steps
+📅 שלב 1: ימים 0-3
+הרשמה ל-Free Tier של Alibaba Cloud
+
+פריסת שרתי A1-A4 עם Docker
+
+התקנת Grafana, Prometheus, PostgreSQL
+
+הגדרת אבטחה בסיסית (Firewall, SSH Keys)
+
+📅 שלב 2: ימים 4-7
+המימון Vast.ai עם קריפטו
+
+הפעלת V1 (RTX 5090) לניסוי כרייה
+
+אינטגרציית ניטור עם Grafana
+
+התקנת Abraham-AI על שרת A1
+
+📅 שלב 3: שבוע 2
+בדיקת רווחיות כרייה (Flux/Qubitcoin)
+
+הגדרת שרת משחקים על V2
+
+חיבור Google Drive לגיבויים
+
+בניית API לשירותי AI
+
+📅 שלב 4: חודש 1+
+אופטימיזציה לפי ביצועים
+
+הרחבת GPU לפי רווחיות
+
+פיתוח שירותים נוספים
+
+מוניטיזציה של פלטפורמה
+
+⚠️ אזהרות קריטיות / Critical Warnings
+❌ אל תכרה ב-Alibaba Cloud - סגירת חשבון מיידית
+
+💰 עקב אחר חובות מס בישראל - התייעץ עם רו"ח
+
+🔒 אבטח שרתים - Firewall, SSH Keys, 2FA
+
+💾 גבה נתונים - Google Drive + מקומית
+
+📊 נטר עלויות - Vast.ai עלול להיות יקר
+
+🔗 משאבים / Resources
+קישורים חשובים / Important Links
+Alibaba Cloud Pricing: https://www.alibabacloud.com/pricing
+
+Vast.ai Pricing: https://vast.ai/pricing
+
+Grafana: https://grafana.com
+
+Abraham-AI Code: [ציין מיקום קוד]
+
+קבצים לצרף / Files to Include
+Docker Compose configurations
+
+Bash scripts for deployment
+
+Grafana dashboard templates
+
+API documentation
+
+Budget tracking spreadsheet
+
+🤖 הערות AI / AI Notes
+קובץ זה מעוצב לקריאה אוטומטית על ידי AI:
+
+מבנה היררכי ברור
+
+תיוג שפות (עברית/אנגלית)
+
+טבלאות לנתונים מובנים
+
+הגדרות טכניות מפורשות
+
+שלבים ניתנים לביצוע
+
+הנחיות להפעלה אוטומטית:
+
+ניתן לנתח טבלאות תקציב
+
+ניתן לחלץ ספקיפיקציות שרתים
+
+ניתן להפיק סקריפטי פריסה
+
+ניתן לנטר ביצועים מול יעדים
+
+📞 קשר / Contact
+לשאלות ותמיכה:
+
+מערך: ALL BITON
+
+אתר: www.all.biton.pro
+
+עדכונים: מסמך זה יועדכן לפי התקדמות
+
+🔄 גרסה: 1.0
+📅 תאריך: 1 בדצמבר 2025
+👤 מנהל פרויקט: [השם שלך]
+🎯 סטטוס: תכנון ראשוני

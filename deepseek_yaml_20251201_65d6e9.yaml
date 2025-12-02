@@ -1,0 +1,104 @@
+version: '3.8'
+
+services:
+  abraham-ai-core:
+    build: .
+    image: abraham-ai:latest
+    container_name: abraham_ai_core
+    ports:
+      - "8000:8000"
+      - "8080:8080"
+    volumes:
+      - ./data:/home/abraham/app/data
+      - ./logs:/home/abraham/app/logs
+      - ./configs:/home/abraham/app/configs
+    environment:
+      - WISDOM_SOURCES=jewish,chinese
+      - AI_MODELS=bert,xlm-roberta
+      - LOG_LEVEL=INFO
+      - API_HOST=0.0.0.0
+      - API_PORT=8000
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - abraham-network
+
+  chevruta-manager:
+    build: .
+    image: abraham-ai:latest
+    container_name: chevruta_manager
+    command: python -m src.chevruta.manager
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data/chevruta:/home/abraham/app/data/chevruta
+    environment:
+      - CORE_API_URL=http://abraham-ai-core:8000
+      - ROOM_NAME=חדר_חברותא_1000
+      - MAX_PARTICIPANTS=1000
+    depends_on:
+      - abraham-ai-core
+    restart: unless-stopped
+    networks:
+      - abraham-network
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: abraham_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    restart: unless-stopped
+    networks:
+      - abraham-network
+
+  postgres-db:
+    image: postgres:15-alpine
+    container_name: abraham_postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=abraham
+      - POSTGRES_PASSWORD=wisdom123
+      - POSTGRES_DB=abraham_ai
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+    networks:
+      - abraham-network
+
+  nginx-proxy:
+    image: nginx:alpine
+    container_name: abraham_nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+    depends_on:
+      - abraham-ai-core
+      - chevruta-manager
+    restart: unless-stopped
+    networks:
+      - abraham-network
+
+networks:
+  abraham-network:
+    driver: bridge
+
+volumes:
+  redis_data:
+    driver: local
+  postgres_data:
+    driver: local
+  wisdom_data:
+    driver: local

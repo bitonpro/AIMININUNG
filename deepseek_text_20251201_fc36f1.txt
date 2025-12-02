@@ -1,0 +1,8 @@
+abraham-ai/
+├── abraham_ai_core.py      # מנוע הליבה
+├── abraham_ai_config.json  # הגדרות
+├── requirements.txt         # תלויות
+├── Dockerfile              # קונטיינריזציה
+├── docker-compose.yml      # פריסה מקומית
+├── alicloud_config.tf      # תצורת Alibaba Cloud
+└── README.md              # זה הקובץ
