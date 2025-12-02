@@ -1,0 +1,69 @@
+{
+  "grafana_dashboard": {
+    "title": "AIMININUNG Hybrid Infrastructure",
+    "panels": [
+      {
+        "title": "GPU Utilization (Vast.ai Reserved)",
+        "type": "graph",
+        "targets": [
+          "vastai_gpu_utilization{instance='V1-AI-Train'}",
+          "vastai_gpu_utilization{instance='V2-AI-Infer'}",
+          "vastai_gpu_utilization{instance='V3-Media'}"
+        ],
+        "alert": ">90% for 5m"
+      },
+      {
+        "title": "Cost Tracking",
+        "type": "stat",
+        "targets": [
+          "alibaba_hourly_cost",
+          "vastai_reserved_hourly_cost",
+          "vastai_ondemand_hourly_cost"
+        ],
+        "thresholds": [100, 200]
+      },
+      {
+        "title": "AI Training Progress",
+        "type": "progress",
+        "targets": ["ai_training_epoch", "ai_training_loss"],
+        "max_value": 100
+      },
+      {
+        "title": "Mining Profitability",
+        "type": "gauge",
+        "targets": ["mining_profit_usd_per_day"],
+        "ranges": [0, 10, 50]
+      },
+      {
+        "title": "SIREG Network Speed",
+        "type": "graph",
+        "targets": ["sireg_bandwidth_gbps"],
+        "unit": "Gbps"
+      }
+    ],
+    "refresh": "30s",
+    "time_range": "24h"
+  },
+  "alerts_config": {
+    "gpu_temperature": {
+      "condition": ">85°C",
+      "severity": "critical",
+      "action": "email, slack"
+    },
+    "cost_exceeded": {
+      "condition": "> $50/day",
+      "severity": "warning",
+      "action": "email"
+    },
+    "mining_unprofitable": {
+      "condition": "< $0/day for 6h",
+      "severity": "warning",
+      "action": "stop_instance"
+    },
+    "instance_down": {
+      "condition": "down for 5m",
+      "severity": "critical",
+      "action": "restart, email"
+    }
+  }
+}

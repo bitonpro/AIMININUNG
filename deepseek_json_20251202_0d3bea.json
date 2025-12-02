@@ -1,0 +1,67 @@
+{
+  "reserved_instances_setup": {
+    "version": "2.0",
+    "description": "תצורת Reserved Instances ב-Vast.ai עם SIREG",
+    "setup_instructions": [
+      "1. היכנס ל-https://cloud.vast.ai/create/",
+      "2. בחר GPU: RTX 5090 או RTX 4090",
+      "3. סמן 'Reserve this instance'",
+      "4. בחר משך: 30 יום",
+      "5. בחר Template: AU (ל-AI) או XURT (למדיה)",
+      "6. הגדר דיסק: 500GB (Training) / 1TB (Media)",
+      "7. הדבק את ה-Onstart script המתאים",
+      "8. וודא ש-SIREG enabled"
+    ],
+    "instances": {
+      "v1_ai_train": {
+        "label": "V1-AI-Train",
+        "gpu": "RTX 5090",
+        "template": "au",
+        "disk_gb": 500,
+        "duration_days": 30,
+        "monthly_cost": "$260",
+        "onstart_script": "https://raw.githubusercontent.com/bitonpro/AIMININUNG/main/scripts/ai_train_setup.sh",
+        "features": ["SIREG", "Persistent Storage", "Auto-Resume"]
+      },
+      "v2_ai_infer": {
+        "label": "V2-AI-Infer",
+        "gpu": "RTX 5090",
+        "template": "au",
+        "disk_gb": 300,
+        "duration_days": 30,
+        "monthly_cost": "$260",
+        "onstart_script": "https://raw.githubusercontent.com/bitonpro/AIMININUNG/main/scripts/ai_infer_setup.sh",
+        "features": ["SIREG", "Low Latency", "High Availability"]
+      },
+      "v3_media": {
+        "label": "V3-Media",
+        "gpu": "RTX 4090",
+        "template": "xurt",
+        "disk_gb": 1000,
+        "duration_days": 30,
+        "monthly_cost": "$200",
+        "onstart_script": "https://raw.githubusercontent.com/bitonpro/AIMININUNG/main/scripts/media_render_setup.sh",
+        "features": ["SIREG", "NVENC", "FFmpeg GPU"]
+      }
+    },
+    "sireg_configuration": {
+      "enabled": true,
+      "bandwidth_gbps": 40,
+      "latency_ms": "<1",
+      "cost": "Free within Vast.ai",
+      "setup": "Automatic when multiple instances created"
+    },
+    "cost_analysis": {
+      "total_monthly_reserved": "$720",
+      "estimated_savings_vs_ondemand": "65%",
+      "estimated_savings_vs_alibaba": "85%",
+      "break_even_hours_per_day": 18,
+      "roi_months": 1.5
+    },
+    "api_integration": {
+      "create_instance_endpoint": "POST https://console.vast.ai/api/v0/instances",
+      "reserved_parameter": "extra_args: --reserved 30",
+      "monitoring_endpoint": "GET https://console.vast.ai/api/v0/instances/{id}/metrics"
+    }
+  }
+}

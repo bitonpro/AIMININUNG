@@ -1,0 +1,25 @@
+┌─────────────────────────────────────────────────────────────┐
+│                    ALIBABA CLOUD (ניהול)                    │
+├─────────────────────────────────────────────────────────────┤
+│  A1-WebAPI (4vCPU, 8GB) - API Gateway & Web Services       │
+│  A2-Monitoring (4vCPU, 8GB) - Grafana, Prometheus, Alert   │
+│  A3-Database (8vCPU, 16GB) - PostgreSQL, Redis, MongoDB    │
+│  A4-DevOps (4vCPU, 8GB) - CI/CD, Docker Registry, Backup   │
+└───────────────────────┬─────────────────────────────────────┘
+                        │
+┌───────────────────────▼─────────────────────────────────────┐
+│                    VAST.AI עם SIREG (Reserved)               │
+├─────────────────────────────────────────────────────────────┤
+│  V1-AI-Train: RTX 5090 (AU Template) - Training Core       │
+│  V2-AI-Infer: RTX 5090 (AU Template) - Inference Engine    │
+│  V3-Media: RTX 4090 (XURT Template) - Video/Audio Render   │
+│  [SIREG Network - 40Gbps בין כל השרתים]                     │
+└───────────────────────┬─────────────────────────────────────┘
+                        │
+┌───────────────────────▼─────────────────────────────────────┐
+│                    VAST.AI On-Demand (גמיש)                 │
+├─────────────────────────────────────────────────────────────┤
+│  V4-Mining: RTX 3090 - Cryptocurrency Mining               │
+│  V5-Testing: RTX 4060 - Development & Testing              │
+│  V6-Backup: RTX 3060 - Backup Processing                   │
+└─────────────────────────────────────────────────────────────┘
