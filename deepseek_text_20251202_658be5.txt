@@ -1,0 +1,8 @@
+AIMININUNG/
+├── 📁 docs/           # מסמכים
+├── 📁 src/           # קוד מקור
+├── 📁 scripts/       # סקריפטים
+├── 📁 config/        # קובצי תצורה
+├── 📁 docker/        # Docker files
+├── 📁 models/        # מודלי AI
+└── 📁 tests/         # בדיקות

@@ -1,0 +1,10 @@
+
+### שלב 2: ארגון קבצים
+```bash
+# צור תיקיות
+mkdir -p docs scripts config src/models tests
+
+# העבר קבצים לתיקיות מתאימות
+mv deepseek_bash_*.sh scripts/
+mv deepseek_python_*.py src/
+mv *.txt docs/
